@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   root to: 'albums#index'
-  
-  get 'users/index'
-  get 'users/show'
-  get 'albums/show'
+   
+  get 'users', to:'users#show'
+  get 'album', to:'albums#show'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
