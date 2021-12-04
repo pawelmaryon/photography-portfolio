@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'photos', to: 'photos#show'
   root to: 'albums#index'
    
   get 'users', to:'users#show'
