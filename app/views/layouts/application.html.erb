@@ -10,6 +10,12 @@
   </head>
 
   <body>
+  <div class="container md-4">
+    <div><%= link_to "Albums", root_path, class:"btn btn-secondary" %></div>
+    <div><%= link_to "Users", users_path, class:"btn btn-secondary" %></div>
+    <div><%= link_to "Photos", photos_path, class:"btn btn-secondary" %></div>
+    <div><%= link_to "Album", album_path, class:"btn btn-secondary" %></div>
+  </div>
     <%= yield %>
   </body>
 </html>

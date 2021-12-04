@@ -1,0 +1,12 @@
+<h1>Photos#show</h1>
+<% @photos.each do |photo| %>
+<div class="container md-5">
+    <div><%= photo['albumId'] %></div>
+    <div><%= photo["id"] %></div>
+    <div><%= photo["title"] %></div>
+    <div><%= photo["url"] %></div>
+    <div><%= photo["thumbnailUrl"] %></div>
+    <hr>
+</div>
+<% end %>
+
