@@ -1,8 +1,13 @@
-<h1>Albums</h1>
+<h2>Albums</h2>
+<h4><%= @albums.class%></h4>
+<p><%= @albums.first.class%></p>
+<%= @photos.class %>
+
+
 <% @albums.each do |album| %>
     <div><%= link_to album["userId"], users_path %></div>
     <div><%= album["id"] %></div>
-    <div><%= link_to album["title"], album_path %></div>
+    <div><%= link_to album["title"], album_path(album['id'])%></div>
     <hr>
 <% end %>
 
