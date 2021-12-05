@@ -2,12 +2,14 @@
 <h4><%= @albums.class%></h4>
 <p><%= @albums.first.class%></p>
 <%= @photos.class %>
+<%= @albums.count %>
 
 
 <% @albums.each do |album| %>
-    <div><%= link_to album["userId"], users_path %></div>
-    <div><%= album["id"] %></div>
-    <div><%= link_to album["title"], album_path(album['id'])%></div>
-    <hr>
+    <div class="borderbox">
+        <div><h4>User:</h4><%= link_to album["userId"], user_path(album["userId"]) %></div>
+        <div><h4>Album name:</h4><%= link_to album["title"], album_path(album['id'])%></div>
+    </div>
+    
 <% end %>
 

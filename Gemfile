@@ -47,3 +47,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'httparty', '~> 0.13.7'
 gem 'bootstrap', '~> 5.1.3'
 gem 'jquery-rails'
+gem 'pry-byebug', '~> 3.9'
