@@ -2,5 +2,17 @@
 <p><%= @album['userId'] %></p>
 <p><%= @album['id'] %></p>
 <p><%= @album['title'] %></p>
+<%= @photo.count %>
+<% @photo.each_with_index do |p, i| %>
+    <div class="borderbox">
+        <% if p["albumId"] == @user["id"] %>
+            <p>album id: <%= p["albumId"] %></p>
+            <p>id: <%= p["id"] %></p>
+            <p>title: <%= p["title"] %></p>
+            <p>url: <%= p["url"] %></p>
+            <p>thumbnail: <%= p["thumbnailUrl"] %></p>
+        <% end %>
+    </div>
+<% end %>
 
 

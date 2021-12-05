@@ -1,2 +1,28 @@
-<h1><%= @user['name'] %></h1>
-<p><%= @user %></p>
+
+<h1>Full name: <%= @user["name"] %></h1>
+<div class="borderbox">
+        <h2>User: <%= @user["username"] %></h2>
+            <h3>Address:</h3> 
+        <div class="borderbox">
+            <p>street: <%= @user["address"]["street"]%></p>
+            <p>house No: <%= @user["address"]["suite"]%></p>
+            <p>city: <%= @user["address"]["city"]%></p>
+            <p>zipcode: <%= @user["address"]["zipcode"]%></p>
+            <p>lat: <%= @user["address"]["geo"]["lat"] %></p>
+            <p>lng: <%= @user["address"]["geo"]["lng"] %></p>
+        </div>
+            <h3>Website:</h3> 
+        <div class="borderbox">
+            <p><%= @user["website"] %></p>
+        </div>
+            <h3>Company: </h3>    
+        <div class="borderbox">
+            <p>Name: <%= @user["company"]["name"] %></p>
+            <p>Catch phrase: <%= @user["company"]["catchPhrase"] %></p>
+            <p>Bs: <%= @user["company"]["bs"] %></p>
+        </div>
+        <h3>Phone number:</h3>
+        <div class="borderbox">
+            <p><%= @user["phone"] %></p>
+        </div>
+    </div>
