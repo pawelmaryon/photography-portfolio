@@ -1,7 +1,7 @@
 <div class="container">
     <% @albums.each do |album| %>
         <div class="borderbox">
-             <% @users.each do |user| %>
+            <% @users.each do |user| %>
                 <% if user["id"] == album["id"]%>
                         <%= link_to user_path(user['id']) do %>
                             <h1>Full name: <%= user["name"] %></h1>
@@ -15,7 +15,6 @@
                     <% break %>     
                 <% end %>    
             <% end %>
-            <div></div>      
         </div>  
     <% end %>
 </div>
