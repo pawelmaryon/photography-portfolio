@@ -1,7 +1,7 @@
 class AlbumsController < ApplicationController
   def index
     @photos = HTTParty.get("https://jsonplaceholder.typicode.com/photos#{params[:albumId]}")
-    @users = HTTParty.get("https://jsonplaceholder.typicode.com/users")
+    @users = HTTParty.get("https://jsonplaceholder.typicode.com/users/#{params[:id]}")
     @albums = HTTParty.get("https://jsonplaceholder.typicode.com/albums")
   end
 
