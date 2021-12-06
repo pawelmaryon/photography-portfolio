@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-  
-  
   def index
     @users = HTTParty.get("https://jsonplaceholder.typicode.com/users")
   end 
