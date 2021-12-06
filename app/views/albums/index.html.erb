@@ -7,8 +7,9 @@
 
 <% @albums.each do |album| %>
     <div class="borderbox">
-        <div><h4>User:</h4><%= link_to album["userId"], user_path(album["userId"]) %></div>
-        <div><h4>Album name:</h4><%= link_to album["title"], album_path(album['id'])%></div>
+        <div><h4>User: <%= link_to album["userId"], user_path(album["userId"]) %></h4></div>
+        <div><h4>Album name: <%= link_to album["title"], album_path(album['id'])%></h4></div>
+        
     </div>
     
 <% end %>

@@ -1,6 +1,6 @@
-
-<h1>Full name: <%= @user["name"] %></h1>
-<div class="borderbox">
+<div class="container">
+    <h1>Full name: <%= @user["name"] %></h1>
+    <div class="borderbox">
         <h2>User: <%= @user["username"] %></h2>
             <h3>Address:</h3> 
         <div class="borderbox">
@@ -24,5 +24,17 @@
         <h3>Phone number:</h3>
         <div class="borderbox">
             <p><%= @user["phone"] %></p>
-        </div>
+        </div>     
+        <h3>Titles: </h3>
+        <div class="borderbox col-md">
+            <% @album.each do |a| %>
+                <% if a["userId"] == @user["id"] %>
+                <div class="row">
+                    <div class="col-md"><%= link_to a["title"], album_path(a['id']) %></div>
+                </div>
+                <% end %>
+            <% end %>
+        </div>    
     </div>
+</div>
+
