@@ -15,14 +15,13 @@ class AlbumsController < ApplicationController
     @photos = JSON.parse(photo_string)
     @albums = JSON.parse(album_string)
     @users = JSON.parse(users)
-    @testing = @albums.zip(@photos)
-    @photo = HTTParty.get("https://jsonplaceholder.typicode.com/photos#{params[:albumId]}")
+    @photos = HTTParty.get("https://jsonplaceholder.typicode.com/photos#{params[:albumId]}")
 
   end
 
   def show
     @album = HTTParty.get("https://jsonplaceholder.typicode.com/albums/#{params[:id]}")
-    @photo = HTTParty.get("https://jsonplaceholder.typicode.com/photos#{params[:albumId]}")
+    @photos = HTTParty.get("https://jsonplaceholder.typicode.com/photos#{params[:albumId]}")
     @user = HTTParty.get("https://jsonplaceholder.typicode.com/users/#{params[:id]}")
 
   end

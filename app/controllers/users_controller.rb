@@ -2,12 +2,11 @@ class UsersController < ApplicationController
   
   
   def index
-    url_users = 'https://jsonplaceholder.typicode.com/users'
-    users = open(url_users).read
-    @users = JSON.parse(users)
+    @users = HTTParty.get("https://jsonplaceholder.typicode.com/users")
   end 
   
   def show
    @user = HTTParty.get("https://jsonplaceholder.typicode.com/users/#{params[:id]}")
+   @album = HTTParty.get("https://jsonplaceholder.typicode.com/albums/#{params[:userId]}")
   end
 end

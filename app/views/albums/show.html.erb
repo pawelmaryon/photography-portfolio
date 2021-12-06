@@ -1,18 +1,16 @@
-<h1>Albums#show</h1>
-<p><%= @album['userId'] %></p>
-<p><%= @album['id'] %></p>
-<p><%= @album['title'] %></p>
-<%= @photo.count %>
-<% @photo.each_with_index do |p, i| %>
-    <div class="borderbox">
-        <% if p["albumId"] == @user["id"] %>
-            <p>album id: <%= p["albumId"] %></p>
-            <p>id: <%= p["id"] %></p>
-            <p>title: <%= p["title"] %></p>
-            <p>url: <%= p["url"] %></p>
-            <p>thumbnail: <%= p["thumbnailUrl"] %></p>
+<div class="container">
+    <% @photos.each do |photo| %>
+        <% if photo["albumId"] == @album["id"] %>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md"><h4>AlbumId: </h4><%= photo['albumId'] %></div>
+                    <div class="col-md"><h5>Id: </h5><%= photo["id"] %></div>
+                    <div class="col-md"><h6>Title: </h6><%= photo["title"] %></div>
+                    <div class="col-md"><%= image_tag photo["url"], width:300, alt:"main image" %></div>
+                    <div class="col-md"><%= image_tag photo["thumbnailUrl"],width:150, alt:"thumbnail" %></div>
+                </div>
+                <hr>    
+            </div>
         <% end %>
-    </div>
-<% end %>
-
-
+    <% end %>
+</div>

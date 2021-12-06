@@ -1,15 +1,15 @@
-<h2>Albums</h2>
-<h4><%= @albums.class%></h4>
-<p><%= @albums.first.class%></p>
-<%= @photos.class %>
-<%= @albums.count %>
-
-
-<% @albums.each do |album| %>
-    <div class="borderbox">
-        <div><h4>User:</h4><%= link_to album["userId"], user_path(album["userId"]) %></div>
-        <div><h4>Album name:</h4><%= link_to album["title"], album_path(album['id'])%></div>
-    </div>
-    
-<% end %>
-
+<div class="container">
+    <% @albums.each do |album| %>
+        <div class="borderbox">
+            <div><h4>User: <%= link_to album["userId"], user_path(album["userId"]) %></h4></div>
+            <div><h4>Album name: <%= link_to album["title"], album_path(album['id'])%></h4></div>
+            <%  @photos.each do |photo|%>
+                <% if photo["albumId"] == album["id"] %>
+                    <%= image_tag photo["thumbnailUrl"] %>
+                    <% break %>     
+                <% end %>    
+            <% end %>
+            <div></div>      
+        </div>  
+    <% end %>
+</div>
