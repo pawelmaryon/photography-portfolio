@@ -1,16 +1,13 @@
-<h1>Photos#show</h1>
-<%= @photos.count %>
-
 <% @photos.each do |photo| %>
-<div class="container">
-    <div class="row">
-        <div class="col-md"><h4>AlbumId: </h4><%= photo['albumId'] %></div>
-        <div class="col-md"><h5>Id: </h5><%= photo["id"] %></div>
-        <div class="col-md"><h6>Title: </h6><%= photo["title"] %></div>
-        <div class="col-md"><%= image_tag photo["url"], width:300, alt:"main image" %></div>
-        <div class="col-md"><%= image_tag photo["thumbnailUrl"],width:150, alt:"thumbnail" %></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md"><h4>AlbumId: </h4><%= photo['albumId'] %></div>
+            <div class="col-md"><h5>Id: </h5><%= photo["id"] %></div>
+            <div class="col-md"><h6>Title: </h6><%= photo["title"] %></div>
+            <div class="col-md"><%= image_tag photo["url"], width:300, alt:"main image" %></div>
+            <div class="col-md"><%= image_tag photo["thumbnailUrl"],width:150, alt:"thumbnail" %></div>
+        </div>
+        <hr>    
     </div>
-    <hr>    
-</div>
 <% end %>
 

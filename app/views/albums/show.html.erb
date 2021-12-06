@@ -1,21 +1,16 @@
 <div class="container">
-<h1>Albums#show</h1>
-<p>userId: <%= @album['userId'] %></p>
-<p>id: <%= @album['id'] %></p>
-<p>Title: <%= @album['title'] %></p>
-<%= @photos.count %>
-<% @photos.each do |photo| %>
-    <% if photo["albumId"] == @album["id"] %>
-    <div class="container">
-        <div class="row">
-            <div class="col-md"><h4>AlbumId: </h4><%= photo['albumId'] %></div>
-            <div class="col-md"><h5>Id: </h5><%= photo["id"] %></div>
-            <div class="col-md"><h6>Title: </h6><%= photo["title"] %></div>
-            <div class="col-md"><%= image_tag photo["url"], width:300, alt:"main image" %></div>
-            <div class="col-md"><%= image_tag photo["thumbnailUrl"],width:150, alt:"thumbnail" %></div>
-        </div>
-        <hr>    
-    </div>
+    <% @photos.each do |photo| %>
+        <% if photo["albumId"] == @album["id"] %>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md"><h4>AlbumId: </h4><%= photo['albumId'] %></div>
+                    <div class="col-md"><h5>Id: </h5><%= photo["id"] %></div>
+                    <div class="col-md"><h6>Title: </h6><%= photo["title"] %></div>
+                    <div class="col-md"><%= image_tag photo["url"], width:300, alt:"main image" %></div>
+                    <div class="col-md"><%= image_tag photo["thumbnailUrl"],width:150, alt:"thumbnail" %></div>
+                </div>
+                <hr>    
+            </div>
+        <% end %>
     <% end %>
-<% end %>
 </div>
