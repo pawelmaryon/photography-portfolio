@@ -5,13 +5,19 @@
         <%end %>
         <h2>User: <%= user["username"] %></h2>
         <h3>Address:</h3> 
-        <div class="borderbox">
-            <p>street: <%= user["address"]["street"]%></p>
-            <p>house No: <%= user["address"]["suite"]%></p>
-            <p>city: <%= user["address"]["city"]%></p>
-            <p>zipcode: <%= user["address"]["zipcode"]%></p>
-            <p>lat: <%= user["address"]["geo"]["lat"] %></p>
-            <p>lng: <%= user["address"]["geo"]["lng"] %></p>
+        <div class="row ">
+            <div class="borderbox col-sm-5">
+                <div>
+                    <p>street: <%= user["address"]["street"]%></p>
+                    <p>house No: <%= user["address"]["suite"]%></p>
+                    <p>city: <%= user["address"]["city"]%></p>
+                    <p>zipcode: <%= user["address"]["zipcode"]%></p>
+                </div>
+            </div>
+            <div class="borderbox col-6">
+                <p>lat: <%= user["address"]["geo"]["lat"] %></p>
+                <p>lng: <%= user["address"]["geo"]["lng"] %></p>
+            </div>
         </div>
             <h3>Website:</h3> 
         <div class="borderbox">
@@ -29,13 +35,15 @@
         </div>
         <h3>Titles: </h3>
         <div class="borderbox col-md">
-            <% @album.each do |a| %>
-                <% if a["userId"] == user["id"] %>
-                <div class="row">
-                    <div class="col-md"><%= link_to a["title"], album_path(a['id']) %></div>
-                </div>
+            <ol>
+                <% @album.each do |a| %>
+                    <% if a["userId"] == user["id"] %>
+                        <div class="row">
+                            <li class="col-md"><%= link_to a["title"], album_path(a['id']) %></li>
+                        </div>
+                    <% end %>
                 <% end %>
-            <% end %>
+            </ol>
         </div>    
     </div>
 <% end %>
