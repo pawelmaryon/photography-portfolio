@@ -5,8 +5,8 @@
         <%end %>
         <h2>User: <%= user["username"] %></h2>
         <h3>Address:</h3> 
-        <div class="row ">
-            <div class="borderbox col-sm-5">
+        <div class="row box-margin">
+            <div class="borderbox col-sm-5 brd-box-margin">
                 <div>
                     <p>street: <%= user["address"]["street"]%></p>
                     <p>house No: <%= user["address"]["suite"]%></p>
@@ -14,7 +14,7 @@
                     <p>zipcode: <%= user["address"]["zipcode"]%></p>
                 </div>
             </div>
-            <div class="borderbox col-6">
+            <div class="borderbox col-6 ">
                 <p>lat: <%= user["address"]["geo"]["lat"] %></p>
                 <p>lng: <%= user["address"]["geo"]["lng"] %></p>
             </div>
