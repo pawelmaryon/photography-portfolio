@@ -2,12 +2,10 @@
     <% @photos.each do |photo| %>
         <% if photo["albumId"] == @album["id"] %>
             <div class="container">
-                <div class="row">
-                    <div class="col-md"><h4>AlbumId: </h4><%= photo['albumId'] %></div>
-                    <div class="col-md"><h5>Id: </h5><%= photo["id"] %></div>
+                <div class="row">              
+                    <div class="col-md"><h4>Owners name: </h4><%= link_to @user["name"],user_path(@user['id'])  %></div>
                     <div class="col-md"><h6>Title: </h6><%= photo["title"] %></div>
                     <div class="col-md"><%= image_tag photo["url"], width:300, alt:"main image" %></div>
-                    <div class="col-md"><%= image_tag photo["thumbnailUrl"],width:150, alt:"thumbnail" %></div>
                 </div>
                 <hr>    
             </div>
