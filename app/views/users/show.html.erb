@@ -1,40 +1,49 @@
-<div class="container">
-    <h1>Full name: <%= @user["name"] %></h1>
-    <div class="borderbox">
-        <h2>User: <%= @user["username"] %></h2>
-            <h3>Address:</h3> 
-        <div class="borderbox">
-            <p>street: <%= @user["address"]["street"]%></p>
-            <p>house No: <%= @user["address"]["suite"]%></p>
-            <p>city: <%= @user["address"]["city"]%></p>
-            <p>zipcode: <%= @user["address"]["zipcode"]%></p>
-            <p>lat: <%= @user["address"]["geo"]["lat"] %></p>
-            <p>lng: <%= @user["address"]["geo"]["lng"] %></p>
-        </div>
-            <h3>Website:</h3> 
-        <div class="borderbox">
-            <p><%= @user["website"] %></p>
-        </div>
-            <h3>Company: </h3>    
-        <div class="borderbox">
-            <p>Name: <%= @user["company"]["name"] %></p>
-            <p>Catch phrase: <%= @user["company"]["catchPhrase"] %></p>
-            <p>Bs: <%= @user["company"]["bs"] %></p>
-        </div>
-        <h3>Phone number:</h3>
-        <div class="borderbox">
-            <p><%= @user["phone"] %></p>
-        </div>     
-        <h3>Titles: </h3>
-        <div class="borderbox col-md">
-            <% @album.each do |a| %>
-                <% if a["userId"] == @user["id"] %>
-                <div class="row">
-                    <div class="col-md"><%= link_to a["title"], album_path(a['id']) %></div>
-                </div>
-                <% end %>
-            <% end %>
-        </div>    
-    </div>
-</div>
 
+<main class="container">
+  <div class="row p-4 p-md-5 mb-4 text-white rounded bg-dark">
+    <div class="col-md-7 px-0">
+        <div class="user-info">
+        <h1 class="display-4 fst-italic">Full name: <%= @user["name"] %></h1>
+        <h2 class="lead my-3">User: <%= @user["username"] %></h2>
+        <h3>Address:</h3>
+        <p>street: <%= @user["address"]["street"]%></p>
+        <p>house No: <%= @user["address"]["suite"]%></p>
+        <p>city: <%= @user["address"]["city"]%></p>
+        <p>zipcode: <%= @user["address"]["zipcode"]%></p>
+        <h3 class="lead mb-0 text-white fw-bold">Website:</h3>
+        <p><%= @user["website"] %></p>
+        <h3 class="lead mb-0 text-white fw-bold">Company: </h3>
+        <p>Name: <%= @user["company"]["name"] %></p>
+        <p>Catch phrase: <%= @user["company"]["catchPhrase"] %></p>
+        <p>Bs: <%= @user["company"]["bs"] %></p>
+        <h3 class="lead mb-0 text-white fw-bold">Phone number:</h3>
+        <p><%= @user["phone"] %></p>
+      </div>
+    </div>
+    <div class="col-md-5 px-0">
+      <p>lat: <%= @user["address"]["geo"]["lat"] %></p>
+      <p>lng: <%= @user["address"]["geo"]["lng"] %></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="position-sticky" style="top: 2rem;">
+        <div class="p-4">
+          <h4 class="fst-italic">Titles</h4>
+          <ol class="list-unstyled mb-0">
+            <li>
+              <% @album.each do |a| %>
+                <% if a["userId"] == @user["id"] %>
+                  <div class="row">
+                    <div class="col-md"><%= link_to a["title"], album_path(a['id']) %></div>
+                  </div>
+                <% end %>
+              <% end %>
+            </li>          
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
