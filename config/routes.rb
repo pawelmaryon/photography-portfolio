@@ -1,14 +1,11 @@
 Rails.application.routes.draw do
-  get 'photos', to: 'photos#show'
-  root to: 'albums#index'
-  get 'all-users', to: 'users#index', as: 'users' 
-  get 'user/:id', to:'users#show', as: 'user'
-  get 'album/:id', to:'albums#show', as: 'album'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-
-  namespace :api, defaults: { format: :json } do
+  root to: 'api/v1/albums#index'
+  namespace :api do
     namespace :v1 do
-      resources :albums, only: [ :index, :show ]
+      resources :albums, only: [:index, :show]
+      resources :users, only: [:show] do
+        resources :albums, only: [:index]
+      end
     end
   end
 end
