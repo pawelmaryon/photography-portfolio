@@ -1,19 +1,9 @@
 class Api::V1::AlbumsController < Api::V1::BaseController
-
   def index
-    # @photos = HTTParty.get("https://jsonplaceholder.typicode.com/photos#{params[:albumId]}")
-    # @users = HTTParty.get("https://jsonplaceholder.typicode.com/users/#{params[:id]}")
-    @albums = HTTParty.get("https://jsonplaceholder.typicode.com/albums")
-
-    render json: @albums
-    
-
+    render json: AlbumCall.new.albums_hash_array(params[:user_id])
   end
+
   def show
-    @albums = HTTParty.get("https://jsonplaceholder.typicode.com/albums")
-    @album = HTTParty.get("https://jsonplaceholder.typicode.com/albums/#{params[:id]}")
-    @users = HTTParty.get("https://jsonplaceholder.typicode.com/users/#{params[:id]}")
-    @photos = HTTParty.get("https://jsonplaceholder.typicode.com/photos#{params[:albumId]}")
-    render json: @album
+    render json: ApiCall.new.photos(params[:id])
   end
 end
