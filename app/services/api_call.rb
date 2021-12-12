@@ -1,13 +1,15 @@
 class ApiCall
   include HTTParty
   base_uri 'https://jsonplaceholder.typicode.com'
-
-  def photos(album_id)
-      self.class.get("/albums/#{album_id}/photos").as_json  
+  def photo(photo_id)
+    self.class.get("/photos#{photo_id}").as_json 
+  end
+  def album (album_id = nil)
+      self.class.get("/albums/#{album_id}").as_json  
   end
 
-  def user(user_id) 
-      self.class.get("/users/#{user_id}").as_json
+  def user(id) 
+      self.class.get("/users/#{id}").as_json
   end
 
   def albums

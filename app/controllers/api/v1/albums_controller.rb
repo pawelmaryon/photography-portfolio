@@ -1,9 +1,9 @@
 class Api::V1::AlbumsController < Api::V1::BaseController
   def index
-    render json: AlbumCall.new.albums_hash_array(params[:user_id])
+    render json: AlbumCall.new.users_album(params[:user_id])
   end
 
   def show
-    render json: ApiCall.new.photos(params[:id])
+    render json: AlbumCall.new.album_item(params[:id])
   end
 end
