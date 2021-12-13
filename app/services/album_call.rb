@@ -4,16 +4,6 @@ class AlbumCall
     @api_call = api_call
   end
 
-  def users_album(user_id = nil)
-    Rails.cache.fetch("albums/user/#{user_id}", expires_in: 12.hours) do
-      albums(user_id).map do |album|
-        user = @api_call.users.find {|user| user['id'] == album['userId'] }
-        thumbnail = @api_call.photos_collection.find {|photo| photo['albumId'] == album['id'] }
-        album.merge(username: user["username"], thumbnail_url: thumbnail["thumbnailUrl"])
-      end
-    end
-  end
-
   def album_item(id)
       photos.each  do |photo|
         photo["title"] 
@@ -25,6 +15,18 @@ class AlbumCall
       end
   end
 
+  def users_album(user_id = nil)
+    albums(user_id).map do |album|
+      user = @api_call.users.find {|user| user['id'] == album['userId'] }
+      thumbnail = @api_call.photos_collection.find {|photo| photo['albumId'] == album['id'] }
+      album.merge(username: user["username"], thumbnail_url: thumbnail["thumbnailUrl"])
+    end
+  end
+
+  def all_users(id) 
+    user = @api_call.user(id)
+  
+  end
 
 
   private
