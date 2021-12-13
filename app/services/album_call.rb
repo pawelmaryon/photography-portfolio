@@ -25,7 +25,6 @@ class AlbumCall
 
   def all_users(id) 
     user = @api_call.user(id)
-  
   end
 
 
