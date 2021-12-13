@@ -1,5 +1,5 @@
 <%= @users.class %>
-<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+<div data-controller="homepage" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
     <% @albums.each do |album| %>  
         <div class="col">
             <% @users.each do |user| %>
@@ -17,10 +17,14 @@
                                 <h4>Album name: <%= album["title"] %></h4>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <%= link_to "user profile", user_path(user['id']), class:"btn btn-sm btn-outline-secondary"%>
-                                    <%= link_to "gallery", album_path(album['id']), class:"btn btn-sm btn-outline-secondary"%>
+                                    <%= link_to "user profile", api_v1_user_albums_path(user['id']), class:"btn btn-sm btn-outline-secondary",
+                                                                                                        data: {
+                                                                                                            homepage_target: "profile",
+                                                                                                            }
+                                    %>
+                                    <%= link_to "gallery", api_v1_album_path(album['id']), class:"btn btn-sm btn-outline-secondary"%>
                                 </div>
-                                <small class="text-muted">9 mins</small>
+                                <small class="text-muted" class>9 mins</small>
                             </div>   
                         </div> 
                     </div> 
