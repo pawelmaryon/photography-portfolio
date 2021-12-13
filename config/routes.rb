@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  root to: 'api/v1/albums#index'
+  root to: 'albums#index'
+
+  resources :albums
+
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
       resources :albums, only: [:index, :show]
